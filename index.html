@@ -3,406 +3,625 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#070713">
+<meta name="theme-color" content="#05060d">
 <title>LEVELUP</title>
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 
-body{
-font-family:Arial,sans-serif;
-background:
-radial-gradient(circle at 85% 0%,#32165f 0%,transparent 35%),
-radial-gradient(circle at 0% 60%,#101c48 0%,transparent 35%),
-#050611;
-color:#fff;
-min-height:100vh;
+:root{
+  --black:#05060d;
+  --navy:#090c18;
+  --panel:#0d1120;
+  --panel2:#11152a;
+  --border:#202742;
+  --purple:#7044b8;
+  --purple2:#8b5cf6;
+  --blue:#268cff;
+  --text:#f4f5ff;
+  --muted:#777f9e;
 }
 
+body{
+  font-family:Arial,sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(circle at 85% -5%,#241044 0,transparent 30%),
+    radial-gradient(circle at -10% 45%,#0c1834 0,transparent 35%),
+    var(--black);
+  min-height:100vh;
+}
+
+button,input{font:inherit}
+
 button{
-font:inherit;
-border:0;
-cursor:pointer;
-color:#fff;
+  border:0;
+  color:white;
+  cursor:pointer;
 }
 
 .app{
-max-width:620px;
-margin:auto;
-padding:18px 15px 100px;
+  max-width:620px;
+  margin:auto;
+  padding:18px 15px 100px;
 }
 
+/* HEADER */
+
 .header{
-display:flex;
-align-items:center;
-justify-content:space-between;
-margin-bottom:18px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:20px;
 }
 
 .logo{
-font-size:27px;
-font-weight:900;
-letter-spacing:3px;
-background:linear-gradient(90deg,#55c7ff,#8060ff,#c477ff);
--webkit-background-clip:text;
-color:transparent;
+  font-size:26px;
+  font-weight:900;
+  letter-spacing:3px;
+  background:linear-gradient(90deg,#51baff,#7c5cff,#a477ff);
+  -webkit-background-clip:text;
+  color:transparent;
 }
 
 .coins{
-background:#101025;
-border:1px solid #38275f;
-padding:9px 13px;
-border-radius:20px;
-box-shadow:0 0 18px #754cff22;
+  background:#0c1020;
+  border:1px solid #282d49;
+  padding:9px 13px;
+  border-radius:18px;
 }
+
+/* CARDS */
 
 .card{
-background:linear-gradient(145deg,#12132b,#0b0b1b);
-border:1px solid #28264b;
-border-radius:20px;
-padding:18px;
-margin-bottom:14px;
-box-shadow:0 10px 30px #0009;
+  background:linear-gradient(145deg,#0e1221,#090c17);
+  border:1px solid var(--border);
+  border-radius:19px;
+  padding:17px;
+  margin-bottom:14px;
+  box-shadow:0 12px 35px #0009;
 }
 
-.cardTitle{
-font-size:11px;
-color:#7e82a7;
-letter-spacing:1.5px;
-margin-bottom:10px;
-font-weight:bold;
+.title{
+  color:#707895;
+  font-size:10px;
+  font-weight:bold;
+  letter-spacing:1.7px;
+  margin-bottom:9px;
 }
 
-.playerTop{
-display:flex;
-justify-content:space-between;
-align-items:center;
+/* PLAYER */
+
+.player{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
 
 .level{
-font-size:29px;
-font-weight:900;
+  font-size:29px;
+  font-weight:900;
 }
 
 .rank{
-color:#a66cff;
-font-size:12px;
-font-weight:900;
-letter-spacing:2px;
-margin-top:3px;
+  color:#9270e9;
+  font-size:11px;
+  letter-spacing:2px;
+  font-weight:bold;
+  margin-top:4px;
 }
 
 .xpbar{
-height:11px;
-background:#20203b;
-border-radius:20px;
-overflow:hidden;
-margin-top:15px;
+  height:9px;
+  margin-top:15px;
+  background:#191e31;
+  border-radius:20px;
+  overflow:hidden;
 }
 
 .xpfill{
-height:100%;
-width:0%;
-background:linear-gradient(90deg,#28aaff,#714cff,#bd70ff);
-box-shadow:0 0 15px #754cff99;
-transition:.5s;
+  height:100%;
+  width:0%;
+  background:linear-gradient(90deg,#248eff,#6949d4,#9a69ed);
+  box-shadow:0 0 13px #6545c766;
+  transition:.5s;
 }
 
 .xptext{
-font-size:12px;
-color:#777c9d;
-margin-top:7px;
+  color:var(--muted);
+  font-size:11px;
+  margin-top:7px;
 }
 
+/* STATS */
+
 .stats{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:8px;
-margin-top:15px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:7px;
+  margin-top:14px;
 }
 
 .stat{
-background:#101126;
-border:1px solid #242645;
-border-radius:13px;
-padding:11px 5px;
-text-align:center;
+  background:#0b0f1d;
+  border:1px solid #1c2238;
+  border-radius:12px;
+  padding:11px 4px;
+  text-align:center;
 }
 
 .stat b{
-display:block;
-font-size:19px;
+  display:block;
+  font-size:18px;
 }
 
 .stat span{
-font-size:10px;
-color:#777c9d;
+  color:#68708c;
+  font-size:9px;
 }
 
+/* QUEST */
+
 .quest{
-position:relative;
-overflow:hidden;
-background:linear-gradient(135deg,#18153b,#101126);
-border:1px solid #423174;
-border-radius:18px;
-padding:17px;
-margin-bottom:10px;
+  background:
+    linear-gradient(135deg,#12142a,#0a0d18);
+  border:1px solid #302750;
+  border-radius:17px;
+  padding:16px;
+  position:relative;
+  overflow:hidden;
 }
 
 .quest:after{
-content:"";
-position:absolute;
-right:-50px;
-top:-50px;
-width:130px;
-height:130px;
-background:#784cff;
-filter:blur(55px);
-opacity:.2;
+  content:"";
+  position:absolute;
+  right:-70px;
+  top:-70px;
+  width:160px;
+  height:160px;
+  background:#7544c9;
+  filter:blur(70px);
+  opacity:.16;
 }
 
 .questName{
-font-size:19px;
-font-weight:bold;
-margin-bottom:5px;
+  font-size:20px;
+  font-weight:900;
 }
 
-.questInfo{
-font-size:12px;
-color:#888eae;
-line-height:1.5;
+.questDesc{
+  color:#858ca8;
+  font-size:12px;
+  line-height:1.5;
+  margin-top:5px;
 }
 
-.reward{
-color:#a978ff;
-font-size:12px;
-font-weight:bold;
-margin-top:8px;
+.rewards{
+  color:#9271e5;
+  font-size:12px;
+  font-weight:bold;
+  margin-top:10px;
 }
 
 .btn{
-background:linear-gradient(90deg,#258fff,#794cff);
-padding:12px 17px;
-border-radius:12px;
-font-weight:bold;
-margin-top:12px;
-box-shadow:0 5px 18px #633cff44;
+  width:100%;
+  margin-top:13px;
+  padding:13px;
+  border-radius:12px;
+  background:linear-gradient(90deg,#1d80df,#6945bd);
+  font-weight:bold;
+  box-shadow:0 7px 20px #3158a333;
 }
 
 .btn.secondary{
-background:#191a35;
-border:1px solid #35355a;
+  background:#111529;
+  border:1px solid #272d47;
+  box-shadow:none;
 }
 
-.sectionGrid{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:10px;
+.btn.locked{
+  opacity:.4;
+  cursor:not-allowed;
+}
+
+/* TRAINING */
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:9px;
 }
 
 .category{
-background:#101126;
-border:1px solid #28294b;
-border-radius:16px;
-padding:15px;
-min-height:105px;
+  min-height:105px;
+  padding:14px;
+  border-radius:15px;
+  background:#0b0f1d;
+  border:1px solid #20263d;
 }
 
 .category:active{
-transform:scale(.98);
+  transform:scale(.98);
 }
 
 .icon{
-font-size:24px;
+  font-size:22px;
 }
 
 .category b{
-display:block;
-margin-top:8px;
+  display:block;
+  margin-top:8px;
 }
 
 .category small{
-display:block;
-color:#777c9d;
-font-size:11px;
-margin-top:4px;
-line-height:1.35;
+  display:block;
+  color:#6f7794;
+  font-size:10px;
+  line-height:1.35;
+  margin-top:4px;
 }
+
+/* STREAK */
 
 .streak{
-display:flex;
-align-items:center;
-justify-content:space-between;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
 
-.streakNumber{
-font-size:28px;
-font-weight:900;
-}
-
-.streakLabel{
-font-size:11px;
-color:#7e82a7;
+.streakNum{
+  font-size:28px;
+  font-weight:900;
 }
 
 .week{
-display:grid;
-grid-template-columns:repeat(7,1fr);
-gap:5px;
-margin-top:12px;
+  display:grid;
+  grid-template-columns:repeat(7,1fr);
+  gap:5px;
+  margin-top:13px;
 }
 
 .day{
-height:34px;
-border-radius:9px;
-background:#17182f;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:10px;
-color:#666b8b;
+  height:31px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  border-radius:8px;
+  background:#111529;
+  color:#5f6681;
+  font-size:9px;
 }
 
 .day.done{
-background:linear-gradient(135deg,#276dba,#7345c7);
-color:#fff;
+  background:linear-gradient(135deg,#1d75bd,#6342a9);
+  color:white;
 }
 
-.progressBar{
-height:8px;
-background:#20213b;
-border-radius:10px;
-overflow:hidden;
-margin-top:9px;
+/* SCREENS */
+
+.screen{
+  display:none;
 }
 
-.progressFill{
-height:100%;
-background:linear-gradient(90deg,#3bb7ff,#925cff);
-width:0%;
+.screen.active{
+  display:block;
 }
 
-.bottom{
-position:fixed;
-bottom:0;
-left:0;
-right:0;
-background:#08091aeF;
-backdrop-filter:blur(15px);
-border-top:1px solid #29294a;
-display:flex;
-justify-content:center;
-gap:6px;
-padding:9px;
-z-index:5;
+.screenHeader{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:16px;
 }
 
-.bottom button{
-background:#13142b;
-border:1px solid #28294b;
-padding:10px 12px;
-border-radius:11px;
-font-size:11px;
+.back{
+  width:40px;
+  height:40px;
+  border-radius:11px;
+  background:#111529;
+  border:1px solid #292f49;
 }
 
-.modal{
-position:fixed;
-inset:0;
-background:#000c;
-display:flex;
-align-items:flex-end;
-justify-content:center;
-z-index:20;
+/* LIBRARY */
+
+.search{
+  width:100%;
+  background:#0c1020;
+  border:1px solid #252b45;
+  color:white;
+  padding:13px;
+  border-radius:12px;
+  outline:none;
+  margin-bottom:11px;
 }
 
-.modal.hidden{
-display:none;
+.exerciseCard{
+  background:#0c1020;
+  border:1px solid #20263e;
+  border-radius:14px;
+  padding:14px;
+  margin-bottom:8px;
 }
 
-.modalBox{
-width:100%;
-max-width:620px;
-max-height:90vh;
-overflow:auto;
-background:#0e0f24;
-border:1px solid #39345f;
-border-radius:25px 25px 0 0;
-padding:20px;
-}
-
-.modalHeader{
-display:flex;
-justify-content:space-between;
-align-items:center;
-margin-bottom:15px;
-}
-
-.close{
-background:#1b1c37;
-border:1px solid #333459;
-width:40px;
-height:40px;
-border-radius:12px;
-}
-
-.exercise{
-background:#15162e;
-border:1px solid #27294b;
-padding:14px;
-border-radius:13px;
-margin-bottom:8px;
+.exerciseTop{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
 }
 
 .exerciseName{
-font-weight:bold;
+  font-weight:bold;
+}
+
+.exerciseCat{
+  color:#7963ba;
+  font-size:10px;
+}
+
+.exerciseInfo{
+  color:#747b96;
+  font-size:11px;
+  margin-top:5px;
+}
+
+/* WORKOUT MODAL */
+
+.modal{
+  position:fixed;
+  inset:0;
+  background:#000d;
+  display:none;
+  align-items:flex-end;
+  z-index:30;
+}
+
+.modal.show{
+  display:flex;
+}
+
+.modalBox{
+  width:100%;
+  max-width:620px;
+  max-height:91vh;
+  overflow:auto;
+  background:#0a0d19;
+  border:1px solid #292d48;
+  border-radius:24px 24px 0 0;
+  padding:19px;
+}
+
+.modalHead{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:15px;
+}
+
+.close{
+  width:40px;
+  height:40px;
+  border-radius:11px;
+  background:#12162a;
+  border:1px solid #292f49;
+}
+
+.checkRow{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  background:#0e1322;
+  border:1px solid #20263d;
+  padding:13px;
+  border-radius:13px;
+  margin-bottom:8px;
+}
+
+.checkRow.done{
+  border-color:#4a3674;
+  background:#111128;
+}
+
+.check{
+  width:25px;
+  height:25px;
+  border-radius:7px;
+  border:1px solid #414963;
+  background:#090c17;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-shrink:0;
+}
+
+.checkRow.done .check{
+  background:#6845a8;
+  border-color:#8d68d5;
 }
 
 .exerciseDetail{
-font-size:12px;
-color:#8589a8;
-margin-top:4px;
+  color:#737b96;
+  font-size:10px;
+  margin-top:3px;
 }
 
-.achievement{
-display:flex;
-align-items:center;
-gap:12px;
-background:#12132a;
-border:1px solid #28294a;
-padding:13px;
-border-radius:14px;
-margin-bottom:8px;
+/* INSTRUCTION */
+
+.instruction{
+  background:#0d1120;
+  border:1px solid #242a43;
+  border-radius:15px;
+  padding:15px;
+  margin-bottom:9px;
 }
 
-.achievement.locked{
-opacity:.45;
+.instruction h3{
+  font-size:15px;
+  margin-bottom:5px;
 }
 
-.badge{
-width:42px;
-height:42px;
-border-radius:12px;
-background:linear-gradient(135deg,#268fff,#8a4cff);
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:20px;
+.instruction p{
+  color:#7a819c;
+  font-size:11px;
+  line-height:1.5;
 }
 
-.achievement small{
-display:block;
-color:#777c9d;
-margin-top:3px;
+/* SIMPLE ORIGINAL INSTRUCTION FIGURE */
+
+.figure{
+  height:155px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:30px;
+  background:
+    radial-gradient(circle,#17152d 0,transparent 60%),
+    #090c17;
+  border:1px solid #20263d;
+  border-radius:15px;
+  margin-bottom:10px;
 }
 
-.hiddenScreen{
-display:none;
+.pose{
+  text-align:center;
+  color:#737b99;
+  font-size:10px;
 }
 
-.screenTitle{
-font-size:23px;
-font-weight:900;
-margin-bottom:15px;
+.person{
+  position:relative;
+  width:70px;
+  height:105px;
+  margin:auto;
+}
+
+.head{
+  position:absolute;
+  width:20px;
+  height:20px;
+  border:3px solid #8390b0;
+  border-radius:50%;
+  left:25px;
+  top:3px;
+}
+
+.body{
+  position:absolute;
+  width:7px;
+  height:45px;
+  background:#8390b0;
+  left:31px;
+  top:25px;
+  border-radius:5px;
+}
+
+.arm{
+  position:absolute;
+  width:6px;
+  height:38px;
+  background:#8390b0;
+  border-radius:5px;
+  transform-origin:top;
+}
+
+.arm.left{
+  left:29px;
+  top:27px;
+  transform:rotate(35deg);
+}
+
+.arm.right{
+  left:35px;
+  top:27px;
+  transform:rotate(-35deg);
+}
+
+.leg{
+  position:absolute;
+  width:6px;
+  height:43px;
+  background:#8390b0;
+  border-radius:5px;
+  top:65px;
+  transform-origin:top;
+}
+
+.leg.left{
+  left:30px;
+  transform:rotate(15deg);
+}
+
+.leg.right{
+  left:34px;
+  transform:rotate(-15deg);
+}
+
+/* TOAST */
+
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:82px;
+  transform:translate(-50%,20px);
+  width:calc(100% - 30px);
+  max-width:450px;
+  background:#0d1122;
+  border:1px solid #46366c;
+  border-left:3px solid #7650c7;
+  border-radius:14px;
+  padding:14px;
+  box-shadow:0 15px 40px #000b;
+  opacity:0;
+  pointer-events:none;
+  transition:.3s;
+  z-index:100;
+}
+
+.toast.show{
+  opacity:1;
+  transform:translate(-50%,0);
+}
+
+.toastTitle{
+  font-weight:900;
+  font-size:13px;
+}
+
+.toastText{
+  color:#858ba5;
+  font-size:11px;
+  margin-top:4px;
+}
+
+/* BOTTOM */
+
+.bottom{
+  position:fixed;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index:10;
+  display:flex;
+  justify-content:center;
+  gap:6px;
+  padding:9px;
+  background:#070914ed;
+  backdrop-filter:blur(14px);
+  border-top:1px solid #1d2338;
+}
+
+.bottom button{
+  background:#101429;
+  border:1px solid #222943;
+  padding:10px 12px;
+  border-radius:10px;
+  font-size:10px;
+}
+
+.empty{
+  color:#686f89;
+  font-size:12px;
+  text-align:center;
+  padding:25px 10px;
 }
 </style>
 </head>
@@ -411,25 +630,25 @@ margin-bottom:15px;
 
 <div class="app">
 
-<div class="header">
-<div class="logo">LEVELUP</div>
-<div class="coins">🪙 <span id="coins">0</span></div>
-</div>
+<header class="header">
+  <div class="logo">LEVELUP</div>
+  <div class="coins">🪙 <span id="coins">0</span></div>
+</header>
 
 <!-- HOME -->
 
-<div id="homeScreen">
+<section id="home" class="screen active">
 
 <div class="card">
 
-<div class="playerTop">
+<div class="player">
 <div>
-<div class="cardTitle">HUNTER PROFILE</div>
+<div class="title">HUNTER PROFILE</div>
 <div class="level">LEVEL <span id="level">1</span></div>
 <div class="rank" id="rank">E-RANK</div>
 </div>
 
-<div style="font-size:38px">⚔️</div>
+<div style="font-size:35px">⚔️</div>
 </div>
 
 <div class="xpbar">
@@ -453,7 +672,7 @@ margin-bottom:15px;
 
 <div class="stat">
 <b id="days">0</b>
-<span>TRAINING DAYS</span>
+<span>DAYS</span>
 </div>
 </div>
 
@@ -464,18 +683,18 @@ margin-bottom:15px;
 <div class="card">
 
 <div class="streak">
+
 <div>
-<div class="cardTitle">CONSISTENCY</div>
-<div class="streakNumber">🔥 <span id="streak">0</span></div>
-<div class="streakLabel">DAY STREAK</div>
+<div class="title">CONSISTENCY</div>
+<div class="streakNum">🔥 <span id="streak">0</span></div>
+<div style="color:#686f89;font-size:10px">DAY STREAK</div>
 </div>
 
 <div style="text-align:right">
-<div class="streakLabel">BEST</div>
-<div style="font-size:20px;font-weight:bold">
-<span id="bestStreak">0</span>
+<div style="color:#686f89;font-size:10px">BEST</div>
+<div style="font-size:20px;font-weight:bold" id="bestStreak">0</div>
 </div>
-</div>
+
 </div>
 
 <div class="week" id="week"></div>
@@ -486,46 +705,24 @@ margin-bottom:15px;
 
 <div class="card">
 
-<div class="cardTitle">TODAY'S GATE</div>
+<div class="title">TODAY'S GATE</div>
 
 <div class="quest">
 
-<div class="questName" id="dailyName">Foundation Gate</div>
+<div class="questName" id="dailyName">Foundation Trial</div>
 
-<div class="questInfo" id="dailyInfo">
-A beginner-friendly training quest.
+<div class="questDesc" id="dailyDesc">
+Complete today's assigned training.
 </div>
 
-<div class="reward">
-+100 XP &nbsp; • &nbsp; +30 🪙
+<div class="rewards">
++100 XP • +30 🪙
 </div>
 
-<button class="btn" onclick="startDailyQuest()">
-ENTER GATE
+<button class="btn" onclick="openDaily()">
+VIEW QUEST
 </button>
 
-</div>
-
-</div>
-
-<!-- WEEKLY -->
-
-<div class="card">
-
-<div class="cardTitle">WEEKLY MISSION</div>
-
-<h2>Awakening Protocol</h2>
-
-<div class="questInfo">
-Complete 3 training sessions this week.
-</div>
-
-<div class="progressBar">
-<div class="progressFill" id="weeklyFill"></div>
-</div>
-
-<div style="font-size:12px;color:#777c9d;margin-top:7px">
-<span id="weeklyCount">0</span> / 3 completed
 </div>
 
 </div>
@@ -534,114 +731,99 @@ Complete 3 training sessions this week.
 
 <div class="card">
 
-<div class="cardTitle">TRAINING GATES</div>
+<div class="title">TRAINING GATES</div>
 
-<div class="sectionGrid">
+<div class="grid">
 
-<div class="category" onclick="openWorkout('Strength')">
+<div class="category" onclick="openCategory('Strength')">
 <div class="icon">💪</div>
 <b>Strength</b>
-<small>Push-ups, squats & light weights</small>
+<small>Build basic strength safely</small>
 </div>
 
-<div class="category" onclick="openWorkout('Cardio')">
+<div class="category" onclick="openCategory('Cardio')">
 <div class="icon">🏃</div>
 <b>Cardio</b>
-<small>Walking, jogging & running</small>
+<small>Walk, jog and run</small>
 </div>
 
-<div class="category" onclick="openWorkout('Grip')">
-<div class="icon">✋</div>
-<b>Grip</b>
-<small>Hands & forearms</small>
-</div>
-
-<div class="category" onclick="openWorkout('Core')">
+<div class="category" onclick="openCategory('Core')">
 <div class="icon">🛡️</div>
 <b>Core</b>
-<small>Beginner core training</small>
+<small>Core stability</small>
 </div>
 
-<div class="category" onclick="openWorkout('Mobility')">
+<div class="category" onclick="openCategory('Grip')">
+<div class="icon">✋</div>
+<b>Grip</b>
+<small>Hands and forearms</small>
+</div>
+
+<div class="category" onclick="openCategory('Mobility')">
 <div class="icon">🧘</div>
 <b>Mobility</b>
-<small>Movement & flexibility</small>
+<small>Move and recover</small>
 </div>
 
-<div class="category" onclick="openWorkout('Breathing')">
+<div class="category" onclick="openCategory('Breathing')">
 <div class="icon">🫁</div>
 <b>Recovery</b>
-<small>Breathing & recovery</small>
+<small>Breathing and recovery</small>
 </div>
 
 </div>
 
-</div>
+<button class="btn secondary" onclick="showScreen('library')">
+📚 EXERCISE LIBRARY
+</button>
 
 </div>
 
-<!-- ACHIEVEMENTS -->
+</section>
 
-<div id="achievementScreen" class="hiddenScreen">
+<!-- LIBRARY -->
 
-<div class="screenTitle">🏆 ACHIEVEMENTS</div>
+<section id="library" class="screen">
 
-<div id="achievementList"></div>
-
+<div class="screenHeader">
+<button class="back" onclick="showScreen('home')">‹</button>
+<div>
+<div class="title">DATABASE</div>
+<h2>EXERCISE LIBRARY</h2>
+</div>
 </div>
 
-<!-- PROGRESS -->
+<input
+class="search"
+id="search"
+placeholder="Search exercises..."
+oninput="renderLibrary()"
+>
 
-<div id="progressScreen" class="hiddenScreen">
+<div id="libraryList"></div>
 
-<div class="screenTitle">📊 PROGRESS</div>
-
-<div class="card">
-
-<div class="cardTitle">YOUR JOURNEY</div>
-
-<div style="font-size:14px;color:#999db8;line-height:1.7">
-Every completed quest adds XP and coins.
-Your rank increases as your level grows.
-Consistency matters more than speed.
-</div>
-
-</div>
-
-<div class="card">
-
-<div class="cardTitle">CURRENT RANK</div>
-
-<div style="font-size:30px;font-weight:900;color:#a66cff" id="progressRank">
-E-RANK
-</div>
-
-</div>
-
-</div>
+</section>
 
 </div>
 
 <!-- BOTTOM NAV -->
 
-<div class="bottom">
-
+<nav class="bottom">
 <button onclick="showScreen('home')">🏠 HOME</button>
-<button onclick="showScreen('achievements')">🏆 ACHIEVEMENTS</button>
-<button onclick="showScreen('progress')">📊 PROGRESS</button>
-
-</div>
+<button onclick="showScreen('library')">📚 LIBRARY</button>
+<button onclick="showAchievements()">🏆 ACHIEVEMENTS</button>
+</nav>
 
 <!-- WORKOUT MODAL -->
 
-<div id="modal" class="modal hidden">
+<div id="modal" class="modal">
 
 <div class="modalBox">
 
-<div class="modalHeader">
+<div class="modalHead">
 
 <div>
-<div class="cardTitle">TRAINING GATE</div>
+<div class="title">TRAINING GATE</div>
 <h2 id="modalTitle">Workout</h2>
 </div>
 
@@ -651,11 +833,20 @@ E-RANK
 
 <div id="exerciseList"></div>
 
-<button class="btn" style="width:100%" onclick="completeWorkout()">
-⚔️ COMPLETE TRAINING
+<div style="font-size:11px;color:#737b96;margin-top:12px">
+COMPLETED: <b id="completedCount">0</b> / <span id="totalCount">0</span>
+</div>
+
+<button
+id="completeBtn"
+class="btn locked"
+onclick="completeWorkout()"
+disabled
+>
+🔒 COMPLETE TRAINING
 </button>
 
-<button class="btn secondary" style="width:100%" onclick="closeWorkout()">
+<button class="btn secondary" onclick="closeWorkout()">
 BACK
 </button>
 
@@ -663,7 +854,87 @@ BACK
 
 </div>
 
+<!-- EXERCISE INFO MODAL -->
+
+<div id="infoModal" class="modal">
+
+<div class="modalBox">
+
+<div class="modalHead">
+
+<div>
+<div class="title">EXERCISE GUIDE</div>
+<h2 id="infoTitle">Exercise</h2>
+</div>
+
+<button class="close" onclick="closeInfo()">✕</button>
+
+</div>
+
+<div class="figure">
+
+<div class="pose">
+<div class="person">
+<div class="head"></div>
+<div class="body"></div>
+<div class="arm left"></div>
+<div class="arm right"></div>
+<div class="leg left"></div>
+<div class="leg right"></div>
+</div>
+START
+</div>
+
+<div style="color:#535b78">→</div>
+
+<div class="pose">
+<div class="person">
+<div class="head"></div>
+<div class="body" style="transform:rotate(25deg)"></div>
+<div class="arm left" style="transform:rotate(75deg)"></div>
+<div class="arm right" style="transform:rotate(-5deg)"></div>
+<div class="leg left" style="transform:rotate(35deg)"></div>
+<div class="leg right" style="transform:rotate(-5deg)"></div>
+</div>
+MOVEMENT
+</div>
+
+<div style="color:#535b78">→</div>
+
+<div class="pose">
+<div class="person">
+<div class="head"></div>
+<div class="body"></div>
+<div class="arm left"></div>
+<div class="arm right"></div>
+<div class="leg left"></div>
+<div class="leg right"></div>
+</div>
+FINISH
+</div>
+
+</div>
+
+<div id="infoContent"></div>
+
+<button class="btn" onclick="closeInfo()">DONE</button>
+
+</div>
+
+</div>
+
+<!-- TOAST -->
+
+<div id="toast" class="toast">
+<div class="toastTitle" id="toastTitle">QUEST COMPLETE</div>
+<div class="toastText" id="toastText">Reward received.</div>
+</div>
+
 <script>
+
+/* =========================
+   DATA
+========================= */
 
 const defaultData={
 level:1,
@@ -675,90 +946,209 @@ days:0,
 streak:0,
 bestStreak:0,
 lastTraining:"",
+achievements:[],
+completedCategories:[],
 weeklyCount:0,
-weekStart:"",
-achievements:[]
+weekStart:""
 };
 
-let data=JSON.parse(localStorage.getItem("levelupData"))||defaultData;
+let data=
+JSON.parse(localStorage.getItem("levelupData"))
+||defaultData;
 
 data={...defaultData,...data};
 
 let currentWorkout=null;
-let dailyCompleted=false;
+let checked=[];
+let isDailyQuest=false;
 
-const workouts={
+/* =========================
+   EXERCISES
+========================= */
+
+const exercises={
 
 Strength:[
-["Push-ups","3 sets • comfortable reps"],
-["Bodyweight Squats","3 sets • comfortable reps"],
-["Light Dumbbell Exercise","2 sets • 8–12 reps"],
-["Plank","3 sets • 20–30 seconds"]
+{
+name:"Push-ups",
+detail:"3 sets • comfortable reps",
+start:"Place your hands comfortably beneath your shoulders. Keep your body controlled.",
+move:"Lower your body with control while keeping a comfortable position.",
+finish:"Press back up smoothly. Stop if your form starts breaking down."
+},
+{
+name:"Bodyweight Squats",
+detail:"3 sets • comfortable reps",
+start:"Stand with feet comfortably apart and keep your chest relaxed.",
+move:"Bend your knees and hips while keeping the movement controlled.",
+finish:"Stand back up smoothly without rushing."
+},
+{
+name:"Light Dumbbell Curl",
+detail:"2 sets • 8–12 comfortable reps",
+start:"Stand comfortably with the dumbbells by your sides.",
+move:"Bend your elbows and bring the weights upward under control.",
+finish:"Lower them slowly back to the starting position."
+}
 ],
 
 Cardio:[
-["Warm-up Walk","5 minutes"],
-["Easy Walk / Jog","10–20 minutes"],
-["Cool-down Walk","5 minutes"]
-],
-
-Grip:[
-["Grip Hold","3 × 15–30 seconds"],
-["Hand Open & Close","2 × 15"],
-["Forearm Rest","2 minutes"]
+{
+name:"Easy Walk",
+detail:"10–20 minutes",
+start:"Stand comfortably and begin at an easy pace.",
+move:"Walk at a pace where you can still breathe comfortably.",
+finish:"Gradually slow down instead of stopping suddenly."
+},
+{
+name:"Easy Jog",
+detail:"5–15 minutes",
+start:"Begin with a few minutes of easy walking.",
+move:"Jog gently at a comfortable pace.",
+finish:"Slow to a walk for your cooldown."
+}
 ],
 
 Core:[
-["Plank","3 × 20–30 seconds"],
-["Dead Bug","2 × 8 each side"],
-["Bird Dog","2 × 8 each side"]
+{
+name:"Plank",
+detail:"3 × 20–30 seconds",
+start:"Set yourself in a comfortable plank position.",
+move:"Keep your body controlled and breathe normally.",
+finish:"End the hold before your form breaks down."
+},
+{
+name:"Bird Dog",
+detail:"2 × 8 each side",
+start:"Begin on hands and knees with a stable position.",
+move:"Slowly extend the opposite arm and leg.",
+finish:"Return to the starting position with control."
+}
+],
+
+Grip:[
+{
+name:"Grip Hold",
+detail:"3 × 15–30 seconds",
+start:"Hold a suitable object securely.",
+move:"Keep a steady, comfortable grip.",
+finish:"Release slowly and rest your hands."
+},
+{
+name:"Hand Open & Close",
+detail:"2 × 15",
+start:"Relax your hand.",
+move:"Open and close your hand through a comfortable range.",
+finish:"Relax completely between repetitions."
+}
 ],
 
 Mobility:[
-["Shoulder Circles","2 × 10"],
-["Hip Mobility","2 × 10"],
-["Gentle Leg Stretch","2 × 20 seconds"]
+{
+name:"Shoulder Circles",
+detail:"2 × 10",
+start:"Stand comfortably with relaxed shoulders.",
+move:"Move your shoulders through slow circles.",
+finish:"Return to a relaxed neutral position."
+},
+{
+name:"Gentle Leg Stretch",
+detail:"2 × 20 seconds",
+start:"Use a stable position and keep the stretch comfortable.",
+move:"Move gently into the stretch without forcing it.",
+finish:"Return slowly and relax."
+}
 ],
 
 Breathing:[
-["Slow Breathing","2 minutes"],
-["Box Breathing","3 minutes"],
-["Relaxed Breathing","2 minutes"]
+{
+name:"Slow Breathing",
+detail:"2 minutes",
+start:"Sit or stand comfortably.",
+move:"Take slow, comfortable breaths.",
+finish:"Return to normal breathing gradually."
+},
+{
+name:"Recovery Breathing",
+detail:"3 minutes",
+start:"Relax your shoulders and find a comfortable position.",
+move:"Breathe slowly and naturally.",
+finish:"Finish feeling relaxed rather than forcing your breathing."
+}
 ]
 
 };
 
-const achievementData=[
+/* =========================
+   DAILY QUESTS
+========================= */
 
-["first","⚔️","First Step","Complete your first workout."],
-
-["gate","🚪","Gate Opened","Complete your first daily quest."],
-
-["level5","⭐","Level 5","Reach Level 5."],
-
-["level10","🌟","Level 10","Reach Level 10."],
-
-["week","🔥","Consistent","Train on 7 different days."],
-
-["explorer","🗺️","Explorer","Complete every training category."],
-
-["veteran","🏆","Veteran","Complete 25 workouts."],
-
-["elite","💜","Elite","Reach A-Rank."],
-
-["awakening","👑","Awakening","Reach S-Rank."]
-
+const dailyQuests=[
+{
+name:"Foundation Trial",
+desc:"Complete a beginner Strength session.",
+type:"Strength"
+},
+{
+name:"Path of Motion",
+desc:"Complete a Mobility session.",
+type:"Mobility"
+},
+{
+name:"Endurance Gate",
+desc:"Complete a Cardio session.",
+type:"Cardio"
+},
+{
+name:"Core Awakening",
+desc:"Complete a Core session.",
+type:"Core"
+},
+{
+name:"Recovery Gate",
+desc:"Complete a short breathing session.",
+type:"Breathing"
+},
+{
+name:"Grip Trial",
+desc:"Complete a Grip session.",
+type:"Grip"
+}
 ];
 
-function save(){
-localStorage.setItem("levelupData",JSON.stringify(data));
+function getDailyQuest(){
+
+const day=
+Math.floor(Date.now()/86400000);
+
+return dailyQuests[day%dailyQuests.length];
+
 }
+
+/* =========================
+   SAVE
+========================= */
+
+function save(){
+localStorage.setItem(
+"levelupData",
+JSON.stringify(data)
+);
+}
+
+/* =========================
+   XP
+========================= */
 
 function needed(){
-return Math.floor(500*Math.pow(1.18,data.level-1));
+
+return Math.floor(
+500*Math.pow(1.18,data.level-1)
+);
+
 }
 
-function getRank(){
+function rank(){
 
 if(data.level>=71)return"S-RANK";
 if(data.level>=51)return"A-RANK";
@@ -767,34 +1157,12 @@ if(data.level>=21)return"C-RANK";
 if(data.level>=11)return"D-RANK";
 
 return"E-RANK";
-}
-
-function today(){
-
-return new Date().toISOString().slice(0,10);
 
 }
 
-function addXP(amount){
-
-data.xp+=amount;
-
-while(data.xp>=needed()){
-
-data.xp-=needed();
-data.level++;
-
-setTimeout(()=>{
-alert("⚡ AWAKENING!\n\nLEVEL "+data.level);
-},50);
-
-}
-
-checkAchievements();
-save();
-update();
-
-}
+/* =========================
+   UPDATE
+========================= */
 
 function update(){
 
@@ -806,53 +1174,91 @@ document.getElementById("workouts").textContent=data.workouts;
 document.getElementById("quests").textContent=data.quests;
 document.getElementById("days").textContent=data.days;
 
-document.getElementById("rank").textContent=getRank();
-document.getElementById("progressRank").textContent=getRank();
-
-let pct=Math.min(100,data.xp/needed()*100);
-
-document.getElementById("xpfill").style.width=pct+"%";
+document.getElementById("rank").textContent=rank();
 
 document.getElementById("streak").textContent=data.streak;
 document.getElementById("bestStreak").textContent=data.bestStreak;
 
-document.getElementById("weeklyCount").textContent=data.weeklyCount;
+document.getElementById("xpfill").style.width=
+Math.min(100,data.xp/needed()*100)+"%";
 
-document.getElementById("weeklyFill").style.width=
-Math.min(100,data.weeklyCount/3*100)+"%";
+const q=getDailyQuest();
+
+document.getElementById("dailyName").textContent=q.name;
+document.getElementById("dailyDesc").textContent=q.desc;
 
 renderWeek();
-renderAchievements();
+renderLibrary();
 
 }
 
-function renderWeek(){
+/* =========================
+   TOAST
+========================= */
 
-let box=document.getElementById("week");
+let toastTimer;
 
-box.innerHTML="";
+function toast(title,text){
 
-for(let i=0;i<7;i++){
+clearTimeout(toastTimer);
 
-let d=document.createElement("div");
+document.getElementById("toastTitle").textContent=title;
+document.getElementById("toastText").textContent=text;
 
-d.className="day";
+const t=document.getElementById("toast");
 
-d.textContent=["M","T","W","T","F","S","S"][i];
+t.classList.add("show");
 
-box.appendChild(d);
+toastTimer=setTimeout(()=>{
+t.classList.remove("show");
+},3200);
 
 }
+
+/* =========================
+   ADD XP
+========================= */
+
+function addXP(amount){
+
+data.xp+=amount;
+
+while(data.xp>=needed()){
+
+data.xp-=needed();
+data.level++;
+
+toast(
+"⚡ AWAKENING",
+"Level "+data.level+" reached!"
+);
+
+}
+
+save();
+update();
+
+}
+
+/* =========================
+   STREAK
+========================= */
+
+function today(){
+
+return new Date()
+.toISOString()
+.slice(0,10);
 
 }
 
 function updateStreak(){
 
-let t=today();
+const t=today();
 
 if(data.lastTraining===t)return;
 
-let yesterday=
+const yesterday=
 new Date(Date.now()-86400000)
 .toISOString()
 .slice(0,10);
@@ -867,45 +1273,76 @@ data.streak=1;
 
 }
 
+data.lastTraining=t;
+data.days++;
+
 if(data.streak>data.bestStreak)
 data.bestStreak=data.streak;
 
-data.days++;
+}
 
-data.lastTraining=t;
+/* =========================
+   WEEK
+========================= */
+
+function renderWeek(){
+
+const box=document.getElementById("week");
+
+box.innerHTML="";
+
+for(let i=0;i<7;i++){
+
+const d=document.createElement("div");
+
+d.className="day";
+
+d.textContent=
+["M","T","W","T","F","S","S"][i];
+
+box.appendChild(d);
 
 }
 
-function completeQuest(rewardXP,rewardCoins){
+}
 
-updateStreak();
+/* =========================
+   SCREEN
+========================= */
 
-data.workouts++;
-data.quests++;
-data.weeklyCount++;
+function showScreen(name){
 
-data.coins+=rewardCoins;
+document.querySelectorAll(".screen")
+.forEach(x=>x.classList.remove("active"));
 
-addXP(rewardXP);
-
-checkAchievements();
-
-save();
-update();
+document.getElementById(name)
+.classList.add("active");
 
 }
 
-function startDailyQuest(){
+/* =========================
+   DAILY
+========================= */
 
-if(dailyCompleted){
+function openDaily(){
 
-alert("✅ Today's Gate is already complete.\n\nCome back tomorrow for a new quest.");
+const q=getDailyQuest();
 
-return;
+isDailyQuest=true;
+
+openWorkout(q.type);
 
 }
 
-openWorkout("Strength");
+/* =========================
+   WORKOUT
+========================= */
+
+function openCategory(type){
+
+isDailyQuest=false;
+
+openWorkout(type);
 
 }
 
@@ -913,134 +1350,278 @@ function openWorkout(type){
 
 currentWorkout=type;
 
-document.getElementById("modalTitle").textContent=type;
+checked=new Array(
+exercises[type].length
+).fill(false);
 
-let list=document.getElementById("exerciseList");
+document.getElementById("modalTitle")
+.textContent=type;
+
+renderWorkout();
+
+document.getElementById("modal")
+.classList.add("show");
+
+}
+
+function renderWorkout(){
+
+const list=
+document.getElementById("exerciseList");
 
 list.innerHTML="";
 
-workouts[type].forEach(ex=>{
+exercises[currentWorkout]
+.forEach((ex,i)=>{
 
-let div=document.createElement("div");
+const row=
+document.createElement("div");
 
-div.className="exercise";
+row.className=
+"checkRow "+(checked[i]?"done":"");
 
-div.innerHTML=
-`<div class="exerciseName">${ex[0]}</div>
-<div class="exerciseDetail">${ex[1]}</div>`;
+row.innerHTML=`
 
-list.appendChild(div);
+<div class="check">
+${checked[i]?"✓":""}
+</div>
+
+<div style="flex:1">
+<div class="exerciseName">
+${ex.name}
+</div>
+<div class="exerciseDetail">
+${ex.detail}
+</div>
+</div>
+
+<button
+style="
+background:transparent;
+color:#8870bd;
+font-size:10px;
+"
+onclick="openInfo(${i});event.stopPropagation();"
+>
+GUIDE
+</button>
+
+`;
+
+row.onclick=()=>{
+
+checked[i]=!checked[i];
+
+renderWorkout();
+
+};
+
+list.appendChild(row);
 
 });
 
-document.getElementById("modal").classList.remove("hidden");
+const complete=
+checked.every(Boolean);
+
+document.getElementById("completedCount")
+.textContent=
+checked.filter(Boolean).length;
+
+document.getElementById("totalCount")
+.textContent=checked.length;
+
+const btn=
+document.getElementById("completeBtn");
+
+btn.disabled=!complete;
+
+btn.className=
+"btn "+(complete?"":"locked");
+
+btn.textContent=
+complete
+?"⚡ COMPLETE TRAINING"
+:"🔒 COMPLETE TRAINING";
 
 }
 
 function closeWorkout(){
 
-document.getElementById("modal").classList.add("hidden");
+document.getElementById("modal")
+.classList.remove("show");
 
 }
 
 function completeWorkout(){
 
-if(!currentWorkout)return;
+if(!checked.every(Boolean)){
 
-let isDaily=currentWorkout==="Strength"&&!dailyCompleted;
+toast(
+"TRAINING INCOMPLETE",
+"Complete every exercise first."
+);
 
-if(isDaily){
+return;
 
-dailyCompleted=true;
-
-completeQuest(100,30);
-
-alert("🚪 GATE CLEARED!\n\n+100 XP\n+30 Coins");
-
-}else{
+}
 
 updateStreak();
 
 data.workouts++;
-data.coins+=15;
+data.coins+=isDailyQuest?30:15;
 
-addXP(50);
+if(isDailyQuest)
+data.quests++;
 
-alert("⚔️ TRAINING COMPLETE!\n\n+50 XP\n+15 Coins");
+if(!data.completedCategories.includes(currentWorkout))
+data.completedCategories.push(currentWorkout);
 
-}
-
-closeWorkout();
+addXP(isDailyQuest?100:50);
 
 save();
 update();
 
-}
+closeWorkout();
 
-function checkAchievements(){
-
-achievementData.forEach(a=>{
-
-let id=a[0];
-
-if(data.achievements.includes(id))return;
-
-let unlock=false;
-
-if(id==="first"&&data.workouts>=1)unlock=true;
-
-if(id==="gate"&&data.quests>=1)unlock=true;
-
-if(id==="level5"&&data.level>=5)unlock=true;
-
-if(id==="level10"&&data.level>=10)unlock=true;
-
-if(id==="week"&&data.days>=7)unlock=true;
-
-if(id==="veteran"&&data.workouts>=25)unlock=true;
-
-if(id==="elite"&&data.level>=51)unlock=true;
-
-if(id==="awakening"&&data.level>=71)unlock=true;
-
-if(unlock){
-
-data.achievements.push(id);
-
-setTimeout(()=>{
-alert("🏆 ACHIEVEMENT UNLOCKED!\n\n"+a[2]);
-},100);
+toast(
+"GATE CLEARED",
+isDailyQuest
+?"+100 XP • +30 Coins"
+:"+50 XP • +15 Coins"
+);
 
 }
+
+/* =========================
+   EXERCISE INFO
+========================= */
+
+function openInfo(index){
+
+const ex=
+exercises[currentWorkout][index];
+
+document.getElementById("infoTitle")
+.textContent=ex.name;
+
+document.getElementById("infoContent")
+.innerHTML=`
+
+<div class="instruction">
+<h3>START</h3>
+<p>${ex.start}</p>
+</div>
+
+<div class="instruction">
+<h3>MOVEMENT</h3>
+<p>${ex.move}</p>
+</div>
+
+<div class="instruction">
+<h3>FINISH</h3>
+<p>${ex.finish}</p>
+</div>
+
+`;
+
+document.getElementById("infoModal")
+.classList.add("show");
+
+}
+
+function closeInfo(){
+
+document.getElementById("infoModal")
+.classList.remove("show");
+
+}
+
+/* =========================
+   LIBRARY
+========================= */
+
+function getAllExercises(){
+
+let all=[];
+
+Object.keys(exercises).forEach(cat=>{
+
+exercises[cat].forEach(ex=>{
+
+all.push({
+...ex,
+category:cat
+});
 
 });
 
-save();
+});
+
+return all;
 
 }
 
-function renderAchievements(){
+function renderLibrary(){
 
-let box=document.getElementById("achievementList");
+const box=
+document.getElementById("libraryList");
 
 if(!box)return;
 
+const search=
+(document.getElementById("search")?.value||"")
+.toLowerCase();
+
+const all=getAllExercises()
+.filter(ex=>
+ex.name.toLowerCase().includes(search)||
+ex.category.toLowerCase().includes(search)
+);
+
+if(!all.length){
+
+box.innerHTML=
+'<div class="empty">No exercises found.</div>';
+
+return;
+
+}
+
 box.innerHTML="";
 
-achievementData.forEach(a=>{
+all.forEach(ex=>{
 
-let unlocked=data.achievements.includes(a[0]);
+const div=
+document.createElement("div");
 
-let div=document.createElement("div");
+div.className="exerciseCard";
 
-div.className="achievement "+(unlocked?"":"locked");
+div.innerHTML=`
 
-div.innerHTML=
-`<div class="badge">${unlocked?a[1]:"🔒"}</div>
-<div>
-<b>${a[2]}</b>
-<small>${a[3]}</small>
-</div>`;
+<div class="exerciseTop">
+
+<div class="exerciseName">
+${ex.name}
+</div>
+
+<div class="exerciseCat">
+${ex.category}
+</div>
+
+</div>
+
+<div class="exerciseInfo">
+${ex.detail}
+</div>
+
+<button
+class="btn secondary"
+onclick='showLibraryGuide(${JSON.stringify(ex)})'
+>
+VIEW GUIDE
+</button>
+
+`;
 
 box.appendChild(div);
 
@@ -1048,18 +1629,54 @@ box.appendChild(div);
 
 }
 
-function showScreen(screen){
+function showLibraryGuide(ex){
 
-document.getElementById("homeScreen").style.display=
-screen==="home"?"block":"none";
+document.getElementById("infoTitle")
+.textContent=ex.name;
 
-document.getElementById("achievementScreen").style.display=
-screen==="achievements"?"block":"none";
+document.getElementById("infoContent")
+.innerHTML=`
 
-document.getElementById("progressScreen").style.display=
-screen==="progress"?"block":"none";
+<div class="instruction">
+<h3>START</h3>
+<p>${ex.start}</p>
+</div>
+
+<div class="instruction">
+<h3>MOVEMENT</h3>
+<p>${ex.move}</p>
+</div>
+
+<div class="instruction">
+<h3>FINISH</h3>
+<p>${ex.finish}</p>
+</div>
+
+`;
+
+document.getElementById("infoModal")
+.classList.add("show");
 
 }
+
+/* =========================
+   ACHIEVEMENTS
+========================= */
+
+function showAchievements(){
+
+const unlocked=data.achievements.length;
+
+toast(
+"ACHIEVEMENTS",
+unlocked+" achievements unlocked"
+);
+
+}
+
+/* =========================
+   START
+========================= */
 
 update();
 
