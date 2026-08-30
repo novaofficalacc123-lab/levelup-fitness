@@ -3,162 +3,407 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#080b1a">
+<meta name="theme-color" content="#070713">
 <title>LEVELUP</title>
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
+
 body{
-  font-family:Arial,sans-serif;
-  background:#080b1a;
-  color:#fff;
-  min-height:100vh;
+font-family:Arial,sans-serif;
+background:
+radial-gradient(circle at 85% 0%,#32165f 0%,transparent 35%),
+radial-gradient(circle at 0% 60%,#101c48 0%,transparent 35%),
+#050611;
+color:#fff;
+min-height:100vh;
 }
-.app{
-  max-width:600px;
-  margin:auto;
-  padding:20px 16px 90px;
-}
-.header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:22px;
-}
-.logo{
-  font-size:25px;
-  font-weight:900;
-  letter-spacing:2px;
-  background:linear-gradient(90deg,#38bdf8,#9b5cff);
-  -webkit-background-clip:text;
-  color:transparent;
-}
-.coins{
-  background:#151932;
-  border:1px solid #30375e;
-  padding:9px 13px;
-  border-radius:20px;
-  font-weight:bold;
-}
-.card{
-  background:linear-gradient(145deg,#11162c,#0c1022);
-  border:1px solid #252c50;
-  border-radius:18px;
-  padding:18px;
-  margin-bottom:14px;
-  box-shadow:0 8px 25px #0005;
-}
-.level{
-  display:flex;
-  justify-content:space-between;
-  margin-bottom:10px;
-}
-.rank{color:#a970ff;font-weight:bold}
-.xpbar{
-  height:10px;
-  background:#202640;
-  border-radius:20px;
-  overflow:hidden;
-}
-.xpfill{
-  height:100%;
-  width:0%;
-  background:linear-gradient(90deg,#27a9ff,#9b5cff);
-  transition:.4s;
-}
-.stats{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:8px;
-  margin-top:15px;
-}
-.stat{
-  background:#171d36;
-  border-radius:12px;
-  padding:12px 5px;
-  text-align:center;
-}
-.stat b{display:block;font-size:18px}
-.stat span{font-size:11px;color:#9ca3bd}
-.title{
-  color:#9ca3bd;
-  font-size:13px;
-  margin-bottom:8px;
-}
-h2{font-size:19px;margin-bottom:6px}
-.quest{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:10px;
-}
+
 button{
-  border:0;
-  color:white;
-  font-weight:bold;
-  padding:12px 16px;
-  border-radius:12px;
-  background:linear-gradient(90deg,#258fff,#854dff);
-  cursor:pointer;
+font:inherit;
+border:0;
+cursor:pointer;
+color:#fff;
 }
-button:active{transform:scale(.97)}
-.categories{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:10px;
+
+.app{
+max-width:620px;
+margin:auto;
+padding:18px 15px 100px;
 }
+
+.header{
+display:flex;
+align-items:center;
+justify-content:space-between;
+margin-bottom:18px;
+}
+
+.logo{
+font-size:27px;
+font-weight:900;
+letter-spacing:3px;
+background:linear-gradient(90deg,#55c7ff,#8060ff,#c477ff);
+-webkit-background-clip:text;
+color:transparent;
+}
+
+.coins{
+background:#101025;
+border:1px solid #38275f;
+padding:9px 13px;
+border-radius:20px;
+box-shadow:0 0 18px #754cff22;
+}
+
+.card{
+background:linear-gradient(145deg,#12132b,#0b0b1b);
+border:1px solid #28264b;
+border-radius:20px;
+padding:18px;
+margin-bottom:14px;
+box-shadow:0 10px 30px #0009;
+}
+
+.cardTitle{
+font-size:11px;
+color:#7e82a7;
+letter-spacing:1.5px;
+margin-bottom:10px;
+font-weight:bold;
+}
+
+.playerTop{
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.level{
+font-size:29px;
+font-weight:900;
+}
+
+.rank{
+color:#a66cff;
+font-size:12px;
+font-weight:900;
+letter-spacing:2px;
+margin-top:3px;
+}
+
+.xpbar{
+height:11px;
+background:#20203b;
+border-radius:20px;
+overflow:hidden;
+margin-top:15px;
+}
+
+.xpfill{
+height:100%;
+width:0%;
+background:linear-gradient(90deg,#28aaff,#714cff,#bd70ff);
+box-shadow:0 0 15px #754cff99;
+transition:.5s;
+}
+
+.xptext{
+font-size:12px;
+color:#777c9d;
+margin-top:7px;
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:8px;
+margin-top:15px;
+}
+
+.stat{
+background:#101126;
+border:1px solid #242645;
+border-radius:13px;
+padding:11px 5px;
+text-align:center;
+}
+
+.stat b{
+display:block;
+font-size:19px;
+}
+
+.stat span{
+font-size:10px;
+color:#777c9d;
+}
+
+.quest{
+position:relative;
+overflow:hidden;
+background:linear-gradient(135deg,#18153b,#101126);
+border:1px solid #423174;
+border-radius:18px;
+padding:17px;
+margin-bottom:10px;
+}
+
+.quest:after{
+content:"";
+position:absolute;
+right:-50px;
+top:-50px;
+width:130px;
+height:130px;
+background:#784cff;
+filter:blur(55px);
+opacity:.2;
+}
+
+.questName{
+font-size:19px;
+font-weight:bold;
+margin-bottom:5px;
+}
+
+.questInfo{
+font-size:12px;
+color:#888eae;
+line-height:1.5;
+}
+
+.reward{
+color:#a978ff;
+font-size:12px;
+font-weight:bold;
+margin-top:8px;
+}
+
+.btn{
+background:linear-gradient(90deg,#258fff,#794cff);
+padding:12px 17px;
+border-radius:12px;
+font-weight:bold;
+margin-top:12px;
+box-shadow:0 5px 18px #633cff44;
+}
+
+.btn.secondary{
+background:#191a35;
+border:1px solid #35355a;
+}
+
+.sectionGrid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:10px;
+}
+
 .category{
-  background:#151a32;
-  border:1px solid #282f52;
-  border-radius:15px;
-  padding:16px;
-  cursor:pointer;
+background:#101126;
+border:1px solid #28294b;
+border-radius:16px;
+padding:15px;
+min-height:105px;
 }
-.category strong{display:block;margin-top:7px}
-.category small{color:#8992b0}
+
+.category:active{
+transform:scale(.98);
+}
+
+.icon{
+font-size:24px;
+}
+
+.category b{
+display:block;
+margin-top:8px;
+}
+
+.category small{
+display:block;
+color:#777c9d;
+font-size:11px;
+margin-top:4px;
+line-height:1.35;
+}
+
+.streak{
+display:flex;
+align-items:center;
+justify-content:space-between;
+}
+
+.streakNumber{
+font-size:28px;
+font-weight:900;
+}
+
+.streakLabel{
+font-size:11px;
+color:#7e82a7;
+}
+
+.week{
+display:grid;
+grid-template-columns:repeat(7,1fr);
+gap:5px;
+margin-top:12px;
+}
+
+.day{
+height:34px;
+border-radius:9px;
+background:#17182f;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:10px;
+color:#666b8b;
+}
+
+.day.done{
+background:linear-gradient(135deg,#276dba,#7345c7);
+color:#fff;
+}
+
+.progressBar{
+height:8px;
+background:#20213b;
+border-radius:10px;
+overflow:hidden;
+margin-top:9px;
+}
+
+.progressFill{
+height:100%;
+background:linear-gradient(90deg,#3bb7ff,#925cff);
+width:0%;
+}
+
 .bottom{
-  position:fixed;
-  bottom:0;
-  left:0;
-  right:0;
-  background:#0b0f21ee;
-  backdrop-filter:blur(12px);
-  border-top:1px solid #242b4a;
-  display:flex;
-  justify-content:center;
-  gap:8px;
-  padding:10px;
+position:fixed;
+bottom:0;
+left:0;
+right:0;
+background:#08091aeF;
+backdrop-filter:blur(15px);
+border-top:1px solid #29294a;
+display:flex;
+justify-content:center;
+gap:6px;
+padding:9px;
+z-index:5;
 }
+
 .bottom button{
-  background:#151a32;
-  padding:10px 13px;
-  font-size:12px;
+background:#13142b;
+border:1px solid #28294b;
+padding:10px 12px;
+border-radius:11px;
+font-size:11px;
 }
-.hidden{display:none}
+
 .modal{
-  position:fixed;
-  inset:0;
-  background:#000b;
-  display:flex;
-  align-items:flex-end;
-  justify-content:center;
-  z-index:10;
+position:fixed;
+inset:0;
+background:#000c;
+display:flex;
+align-items:flex-end;
+justify-content:center;
+z-index:20;
 }
-.modalbox{
-  width:100%;
-  max-width:600px;
-  background:#10152b;
-  border-radius:25px 25px 0 0;
-  padding:22px;
-  border-top:1px solid #303860;
+
+.modal.hidden{
+display:none;
 }
+
+.modalBox{
+width:100%;
+max-width:620px;
+max-height:90vh;
+overflow:auto;
+background:#0e0f24;
+border:1px solid #39345f;
+border-radius:25px 25px 0 0;
+padding:20px;
+}
+
+.modalHeader{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:15px;
+}
+
+.close{
+background:#1b1c37;
+border:1px solid #333459;
+width:40px;
+height:40px;
+border-radius:12px;
+}
+
 .exercise{
-  display:flex;
-  justify-content:space-between;
-  padding:13px 0;
-  border-bottom:1px solid #252b47;
+background:#15162e;
+border:1px solid #27294b;
+padding:14px;
+border-radius:13px;
+margin-bottom:8px;
 }
-.done{color:#42e6a4}
+
+.exerciseName{
+font-weight:bold;
+}
+
+.exerciseDetail{
+font-size:12px;
+color:#8589a8;
+margin-top:4px;
+}
+
+.achievement{
+display:flex;
+align-items:center;
+gap:12px;
+background:#12132a;
+border:1px solid #28294a;
+padding:13px;
+border-radius:14px;
+margin-bottom:8px;
+}
+
+.achievement.locked{
+opacity:.45;
+}
+
+.badge{
+width:42px;
+height:42px;
+border-radius:12px;
+background:linear-gradient(135deg,#268fff,#8a4cff);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:20px;
+}
+
+.achievement small{
+display:block;
+color:#777c9d;
+margin-top:3px;
+}
+
+.hiddenScreen{
+display:none;
+}
+
+.screenTitle{
+font-size:23px;
+font-weight:900;
+margin-bottom:15px;
+}
 </style>
 </head>
 
@@ -166,263 +411,654 @@ button:active{transform:scale(.97)}
 
 <div class="app">
 
-  <div class="header">
-    <div class="logo">LEVELUP</div>
-    <div class="coins">🪙 <span id="coins">0</span></div>
-  </div>
+<div class="header">
+<div class="logo">LEVELUP</div>
+<div class="coins">🪙 <span id="coins">0</span></div>
+</div>
 
-  <div class="card">
-    <div class="level">
-      <div>
-        <div class="title">PLAYER</div>
-        <h2>LEVEL <span id="level">1</span></h2>
-      </div>
-      <div class="rank" id="rank">E-RANK</div>
-    </div>
+<!-- HOME -->
 
-    <div class="xpbar">
-      <div class="xpfill" id="xpfill"></div>
-    </div>
+<div id="homeScreen">
 
-    <div style="margin-top:7px;font-size:12px;color:#8992b0">
-      <span id="xp">0</span> / <span id="needed">500</span> XP
-    </div>
+<div class="card">
 
-    <div class="stats">
-      <div class="stat"><b id="workouts">0</b><span>WORKOUTS</span></div>
-      <div class="stat"><b id="quests">0</b><span>QUESTS</span></div>
-      <div class="stat"><b id="days">0</b><span>DAYS</span></div>
-    </div>
-  </div>
+<div class="playerTop">
+<div>
+<div class="cardTitle">HUNTER PROFILE</div>
+<div class="level">LEVEL <span id="level">1</span></div>
+<div class="rank" id="rank">E-RANK</div>
+</div>
 
-  <div class="card">
-    <div class="title">TODAY'S QUEST</div>
+<div style="font-size:38px">⚔️</div>
+</div>
 
-    <div class="quest">
-      <div>
-        <h2 id="questName">Foundation Training</h2>
-        <div style="color:#8992b0;font-size:13px">
-          Beginner • +100 XP • +30 🪙
-        </div>
-      </div>
+<div class="xpbar">
+<div class="xpfill" id="xpfill"></div>
+</div>
 
-      <button onclick="startWorkout()">START</button>
-    </div>
-  </div>
+<div class="xptext">
+<span id="xp">0</span> / <span id="needed">500</span> XP
+</div>
 
-  <div class="card">
-    <div class="title">TRAINING</div>
+<div class="stats">
+<div class="stat">
+<b id="workouts">0</b>
+<span>WORKOUTS</span>
+</div>
 
-    <div class="categories">
+<div class="stat">
+<b id="quests">0</b>
+<span>QUESTS</span>
+</div>
 
-      <div class="category" onclick="openWorkout('Strength')">
-        💪
-        <strong>Strength</strong>
-        <small>Push-ups, squats & dumbbells</small>
-      </div>
-
-      <div class="category" onclick="openWorkout('Cardio')">
-        🏃
-        <strong>Cardio</strong>
-        <small>Walking, running & jogging</small>
-      </div>
-
-      <div class="category" onclick="openWorkout('Grip')">
-        ✋
-        <strong>Grip</strong>
-        <small>Grip & forearm training</small>
-      </div>
-
-      <div class="category" onclick="openWorkout('Breathing')">
-        🫁
-        <strong>Breathing</strong>
-        <small>Recovery & breathing sessions</small>
-      </div>
-
-      <div class="category" onclick="openWorkout('Mobility')">
-        🧘
-        <strong>Mobility</strong>
-        <small>Stretching & movement</small>
-      </div>
-
-      <div class="category" onclick="openWorkout('Core')">
-        🛡️
-        <strong>Core</strong>
-        <small>Beginner core training</small>
-      </div>
-
-    </div>
-  </div>
+<div class="stat">
+<b id="days">0</b>
+<span>TRAINING DAYS</span>
+</div>
+</div>
 
 </div>
 
-<div id="modal" class="modal hidden">
-  <div class="modalbox">
-    <div class="header">
-      <div>
-        <div class="title">TRAINING QUEST</div>
-        <h2 id="modalTitle">Workout</h2>
-      </div>
-      <button onclick="closeWorkout()">✕</button>
-    </div>
+<!-- STREAK -->
 
-    <div id="exerciseList"></div>
+<div class="card">
 
-    <button style="width:100%;margin-top:18px"
-            onclick="completeWorkout()">
-      COMPLETE QUEST
-    </button>
-  </div>
+<div class="streak">
+<div>
+<div class="cardTitle">CONSISTENCY</div>
+<div class="streakNumber">🔥 <span id="streak">0</span></div>
+<div class="streakLabel">DAY STREAK</div>
 </div>
+
+<div style="text-align:right">
+<div class="streakLabel">BEST</div>
+<div style="font-size:20px;font-weight:bold">
+<span id="bestStreak">0</span>
+</div>
+</div>
+</div>
+
+<div class="week" id="week"></div>
+
+</div>
+
+<!-- DAILY QUEST -->
+
+<div class="card">
+
+<div class="cardTitle">TODAY'S GATE</div>
+
+<div class="quest">
+
+<div class="questName" id="dailyName">Foundation Gate</div>
+
+<div class="questInfo" id="dailyInfo">
+A beginner-friendly training quest.
+</div>
+
+<div class="reward">
++100 XP &nbsp; • &nbsp; +30 🪙
+</div>
+
+<button class="btn" onclick="startDailyQuest()">
+ENTER GATE
+</button>
+
+</div>
+
+</div>
+
+<!-- WEEKLY -->
+
+<div class="card">
+
+<div class="cardTitle">WEEKLY MISSION</div>
+
+<h2>Awakening Protocol</h2>
+
+<div class="questInfo">
+Complete 3 training sessions this week.
+</div>
+
+<div class="progressBar">
+<div class="progressFill" id="weeklyFill"></div>
+</div>
+
+<div style="font-size:12px;color:#777c9d;margin-top:7px">
+<span id="weeklyCount">0</span> / 3 completed
+</div>
+
+</div>
+
+<!-- TRAINING -->
+
+<div class="card">
+
+<div class="cardTitle">TRAINING GATES</div>
+
+<div class="sectionGrid">
+
+<div class="category" onclick="openWorkout('Strength')">
+<div class="icon">💪</div>
+<b>Strength</b>
+<small>Push-ups, squats & light weights</small>
+</div>
+
+<div class="category" onclick="openWorkout('Cardio')">
+<div class="icon">🏃</div>
+<b>Cardio</b>
+<small>Walking, jogging & running</small>
+</div>
+
+<div class="category" onclick="openWorkout('Grip')">
+<div class="icon">✋</div>
+<b>Grip</b>
+<small>Hands & forearms</small>
+</div>
+
+<div class="category" onclick="openWorkout('Core')">
+<div class="icon">🛡️</div>
+<b>Core</b>
+<small>Beginner core training</small>
+</div>
+
+<div class="category" onclick="openWorkout('Mobility')">
+<div class="icon">🧘</div>
+<b>Mobility</b>
+<small>Movement & flexibility</small>
+</div>
+
+<div class="category" onclick="openWorkout('Breathing')">
+<div class="icon">🫁</div>
+<b>Recovery</b>
+<small>Breathing & recovery</small>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ACHIEVEMENTS -->
+
+<div id="achievementScreen" class="hiddenScreen">
+
+<div class="screenTitle">🏆 ACHIEVEMENTS</div>
+
+<div id="achievementList"></div>
+
+</div>
+
+<!-- PROGRESS -->
+
+<div id="progressScreen" class="hiddenScreen">
+
+<div class="screenTitle">📊 PROGRESS</div>
+
+<div class="card">
+
+<div class="cardTitle">YOUR JOURNEY</div>
+
+<div style="font-size:14px;color:#999db8;line-height:1.7">
+Every completed quest adds XP and coins.
+Your rank increases as your level grows.
+Consistency matters more than speed.
+</div>
+
+</div>
+
+<div class="card">
+
+<div class="cardTitle">CURRENT RANK</div>
+
+<div style="font-size:30px;font-weight:900;color:#a66cff" id="progressRank">
+E-RANK
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- BOTTOM NAV -->
 
 <div class="bottom">
-  <button>🏠 HOME</button>
-  <button onclick="openWorkout('Strength')">⚔️ QUEST</button>
-  <button>📊 PROGRESS</button>
-  <button>🧙 CHARACTER</button>
+
+<button onclick="showScreen('home')">🏠 HOME</button>
+<button onclick="showScreen('achievements')">🏆 ACHIEVEMENTS</button>
+<button onclick="showScreen('progress')">📊 PROGRESS</button>
+
+</div>
+
+<!-- WORKOUT MODAL -->
+
+<div id="modal" class="modal hidden">
+
+<div class="modalBox">
+
+<div class="modalHeader">
+
+<div>
+<div class="cardTitle">TRAINING GATE</div>
+<h2 id="modalTitle">Workout</h2>
+</div>
+
+<button class="close" onclick="closeWorkout()">✕</button>
+
+</div>
+
+<div id="exerciseList"></div>
+
+<button class="btn" style="width:100%" onclick="completeWorkout()">
+⚔️ COMPLETE TRAINING
+</button>
+
+<button class="btn secondary" style="width:100%" onclick="closeWorkout()">
+BACK
+</button>
+
+</div>
+
 </div>
 
 <script>
 
-let data = JSON.parse(localStorage.getItem("levelupData")) || {
-  level:1,
-  xp:0,
-  coins:0,
-  workouts:0,
-  quests:0,
-  days:0
+const defaultData={
+level:1,
+xp:0,
+coins:0,
+workouts:0,
+quests:0,
+days:0,
+streak:0,
+bestStreak:0,
+lastTraining:"",
+weeklyCount:0,
+weekStart:"",
+achievements:[]
 };
 
-function save(){
-  localStorage.setItem("levelupData",JSON.stringify(data));
-}
+let data=JSON.parse(localStorage.getItem("levelupData"))||defaultData;
 
-function rank(){
-  if(data.level>=71)return"S-RANK";
-  if(data.level>=51)return"A-RANK";
-  if(data.level>=36)return"B-RANK";
-  if(data.level>=21)return"C-RANK";
-  if(data.level>=11)return"D-RANK";
-  return"E-RANK";
-}
+data={...defaultData,...data};
 
-function needed(){
-  return Math.floor(500 * Math.pow(1.18,data.level-1));
-}
-
-function update(){
-
-  document.getElementById("level").textContent=data.level;
-  document.getElementById("xp").textContent=data.xp;
-  document.getElementById("needed").textContent=needed();
-  document.getElementById("coins").textContent=data.coins;
-  document.getElementById("workouts").textContent=data.workouts;
-  document.getElementById("quests").textContent=data.quests;
-  document.getElementById("days").textContent=data.days;
-  document.getElementById("rank").textContent=rank();
-
-  let percent=Math.min(100,(data.xp/needed())*100);
-  document.getElementById("xpfill").style.width=percent+"%";
-}
-
-function addXP(amount){
-
-  data.xp+=amount;
-
-  while(data.xp>=needed()){
-    data.xp-=needed();
-    data.level++;
-
-    alert("⚡ LEVEL UP!\n\nYou reached Level "+data.level+"!");
-  }
-
-  save();
-  update();
-}
+let currentWorkout=null;
+let dailyCompleted=false;
 
 const workouts={
 
 Strength:[
-  ["Push-ups","3 × comfortable reps"],
-  ["Bodyweight Squats","3 × comfortable reps"],
-  ["Light Dumbbell Press","2 × 8–12"],
-  ["Plank","3 × 20–30 sec"]
+["Push-ups","3 sets • comfortable reps"],
+["Bodyweight Squats","3 sets • comfortable reps"],
+["Light Dumbbell Exercise","2 sets • 8–12 reps"],
+["Plank","3 sets • 20–30 seconds"]
 ],
 
 Cardio:[
-  ["Warm-up Walk","5 min"],
-  ["Walk / Easy Jog","10–20 min"],
-  ["Cool-down Walk","5 min"]
+["Warm-up Walk","5 minutes"],
+["Easy Walk / Jog","10–20 minutes"],
+["Cool-down Walk","5 minutes"]
 ],
 
 Grip:[
-  ["Grip Hold","3 × 15–30 sec"],
-  ["Hand Open/Close","2 × 15"],
-  ["Forearm Rest","2 min"]
-],
-
-Breathing:[
-  ["Slow Breathing","2 min"],
-  ["Box Breathing","3 min"],
-  ["Relaxed Breathing","2 min"]
-],
-
-Mobility:[
-  ["Shoulder Circles","2 × 10"],
-  ["Hip Mobility","2 × 10"],
-  ["Gentle Leg Stretch","2 × 20 sec"]
+["Grip Hold","3 × 15–30 seconds"],
+["Hand Open & Close","2 × 15"],
+["Forearm Rest","2 minutes"]
 ],
 
 Core:[
-  ["Plank","3 × 20–30 sec"],
-  ["Dead Bug","2 × 8 each side"],
-  ["Bird Dog","2 × 8 each side"]
+["Plank","3 × 20–30 seconds"],
+["Dead Bug","2 × 8 each side"],
+["Bird Dog","2 × 8 each side"]
+],
+
+Mobility:[
+["Shoulder Circles","2 × 10"],
+["Hip Mobility","2 × 10"],
+["Gentle Leg Stretch","2 × 20 seconds"]
+],
+
+Breathing:[
+["Slow Breathing","2 minutes"],
+["Box Breathing","3 minutes"],
+["Relaxed Breathing","2 minutes"]
 ]
 
 };
 
-let currentWorkout=null;
+const achievementData=[
+
+["first","⚔️","First Step","Complete your first workout."],
+
+["gate","🚪","Gate Opened","Complete your first daily quest."],
+
+["level5","⭐","Level 5","Reach Level 5."],
+
+["level10","🌟","Level 10","Reach Level 10."],
+
+["week","🔥","Consistent","Train on 7 different days."],
+
+["explorer","🗺️","Explorer","Complete every training category."],
+
+["veteran","🏆","Veteran","Complete 25 workouts."],
+
+["elite","💜","Elite","Reach A-Rank."],
+
+["awakening","👑","Awakening","Reach S-Rank."]
+
+];
+
+function save(){
+localStorage.setItem("levelupData",JSON.stringify(data));
+}
+
+function needed(){
+return Math.floor(500*Math.pow(1.18,data.level-1));
+}
+
+function getRank(){
+
+if(data.level>=71)return"S-RANK";
+if(data.level>=51)return"A-RANK";
+if(data.level>=36)return"B-RANK";
+if(data.level>=21)return"C-RANK";
+if(data.level>=11)return"D-RANK";
+
+return"E-RANK";
+}
+
+function today(){
+
+return new Date().toISOString().slice(0,10);
+
+}
+
+function addXP(amount){
+
+data.xp+=amount;
+
+while(data.xp>=needed()){
+
+data.xp-=needed();
+data.level++;
+
+setTimeout(()=>{
+alert("⚡ AWAKENING!\n\nLEVEL "+data.level);
+},50);
+
+}
+
+checkAchievements();
+save();
+update();
+
+}
+
+function update(){
+
+document.getElementById("level").textContent=data.level;
+document.getElementById("xp").textContent=data.xp;
+document.getElementById("needed").textContent=needed();
+document.getElementById("coins").textContent=data.coins;
+document.getElementById("workouts").textContent=data.workouts;
+document.getElementById("quests").textContent=data.quests;
+document.getElementById("days").textContent=data.days;
+
+document.getElementById("rank").textContent=getRank();
+document.getElementById("progressRank").textContent=getRank();
+
+let pct=Math.min(100,data.xp/needed()*100);
+
+document.getElementById("xpfill").style.width=pct+"%";
+
+document.getElementById("streak").textContent=data.streak;
+document.getElementById("bestStreak").textContent=data.bestStreak;
+
+document.getElementById("weeklyCount").textContent=data.weeklyCount;
+
+document.getElementById("weeklyFill").style.width=
+Math.min(100,data.weeklyCount/3*100)+"%";
+
+renderWeek();
+renderAchievements();
+
+}
+
+function renderWeek(){
+
+let box=document.getElementById("week");
+
+box.innerHTML="";
+
+for(let i=0;i<7;i++){
+
+let d=document.createElement("div");
+
+d.className="day";
+
+d.textContent=["M","T","W","T","F","S","S"][i];
+
+box.appendChild(d);
+
+}
+
+}
+
+function updateStreak(){
+
+let t=today();
+
+if(data.lastTraining===t)return;
+
+let yesterday=
+new Date(Date.now()-86400000)
+.toISOString()
+.slice(0,10);
+
+if(data.lastTraining===yesterday){
+
+data.streak++;
+
+}else{
+
+data.streak=1;
+
+}
+
+if(data.streak>data.bestStreak)
+data.bestStreak=data.streak;
+
+data.days++;
+
+data.lastTraining=t;
+
+}
+
+function completeQuest(rewardXP,rewardCoins){
+
+updateStreak();
+
+data.workouts++;
+data.quests++;
+data.weeklyCount++;
+
+data.coins+=rewardCoins;
+
+addXP(rewardXP);
+
+checkAchievements();
+
+save();
+update();
+
+}
+
+function startDailyQuest(){
+
+if(dailyCompleted){
+
+alert("✅ Today's Gate is already complete.\n\nCome back tomorrow for a new quest.");
+
+return;
+
+}
+
+openWorkout("Strength");
+
+}
 
 function openWorkout(type){
 
-  currentWorkout=type;
+currentWorkout=type;
 
-  document.getElementById("modalTitle").textContent=type;
+document.getElementById("modalTitle").textContent=type;
 
-  let list=document.getElementById("exerciseList");
+let list=document.getElementById("exerciseList");
 
-  list.innerHTML=workouts[type].map(x=>`
-    <div class="exercise">
-      <span>${x[0]}</span>
-      <span style="color:#8992b0">${x[1]}</span>
-    </div>
-  `).join("");
+list.innerHTML="";
 
-  document.getElementById("modal").classList.remove("hidden");
-}
+workouts[type].forEach(ex=>{
 
-function startWorkout(){
-  openWorkout("Strength");
+let div=document.createElement("div");
+
+div.className="exercise";
+
+div.innerHTML=
+`<div class="exerciseName">${ex[0]}</div>
+<div class="exerciseDetail">${ex[1]}</div>`;
+
+list.appendChild(div);
+
+});
+
+document.getElementById("modal").classList.remove("hidden");
+
 }
 
 function closeWorkout(){
-  document.getElementById("modal").classList.add("hidden");
+
+document.getElementById("modal").classList.add("hidden");
+
 }
 
 function completeWorkout(){
 
-  data.workouts++;
-  data.quests++;
-  data.coins+=30;
+if(!currentWorkout)return;
 
-  addXP(100);
+let isDaily=currentWorkout==="Strength"&&!dailyCompleted;
 
-  closeWorkout();
+if(isDaily){
 
-  alert("⚔️ QUEST COMPLETE!\n\n+100 XP\n+30 Coins");
+dailyCompleted=true;
 
-  save();
-  update();
+completeQuest(100,30);
+
+alert("🚪 GATE CLEARED!\n\n+100 XP\n+30 Coins");
+
+}else{
+
+updateStreak();
+
+data.workouts++;
+data.coins+=15;
+
+addXP(50);
+
+alert("⚔️ TRAINING COMPLETE!\n\n+50 XP\n+15 Coins");
+
+}
+
+closeWorkout();
+
+save();
+update();
+
+}
+
+function checkAchievements(){
+
+achievementData.forEach(a=>{
+
+let id=a[0];
+
+if(data.achievements.includes(id))return;
+
+let unlock=false;
+
+if(id==="first"&&data.workouts>=1)unlock=true;
+
+if(id==="gate"&&data.quests>=1)unlock=true;
+
+if(id==="level5"&&data.level>=5)unlock=true;
+
+if(id==="level10"&&data.level>=10)unlock=true;
+
+if(id==="week"&&data.days>=7)unlock=true;
+
+if(id==="veteran"&&data.workouts>=25)unlock=true;
+
+if(id==="elite"&&data.level>=51)unlock=true;
+
+if(id==="awakening"&&data.level>=71)unlock=true;
+
+if(unlock){
+
+data.achievements.push(id);
+
+setTimeout(()=>{
+alert("🏆 ACHIEVEMENT UNLOCKED!\n\n"+a[2]);
+},100);
+
+}
+
+});
+
+save();
+
+}
+
+function renderAchievements(){
+
+let box=document.getElementById("achievementList");
+
+if(!box)return;
+
+box.innerHTML="";
+
+achievementData.forEach(a=>{
+
+let unlocked=data.achievements.includes(a[0]);
+
+let div=document.createElement("div");
+
+div.className="achievement "+(unlocked?"":"locked");
+
+div.innerHTML=
+`<div class="badge">${unlocked?a[1]:"🔒"}</div>
+<div>
+<b>${a[2]}</b>
+<small>${a[3]}</small>
+</div>`;
+
+box.appendChild(div);
+
+});
+
+}
+
+function showScreen(screen){
+
+document.getElementById("homeScreen").style.display=
+screen==="home"?"block":"none";
+
+document.getElementById("achievementScreen").style.display=
+screen==="achievements"?"block":"none";
+
+document.getElementById("progressScreen").style.display=
+screen==="progress"?"block":"none";
+
 }
 
 update();
